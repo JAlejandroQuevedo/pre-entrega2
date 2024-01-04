@@ -3,7 +3,7 @@ function ingresarGlucosa() {
     //Definicion de la funcion
     let registrosGlucosa = [];
     //Se crea un array paa almacenar los registros
-    const MAXREGISTROS = 5;
+    const MAXREGISTROS = 1;
     //Se establece un numero maximo de registros que se pueden ingresar
     prompt("Ingresa una cifra de glucosa, si esta se encuentra fuera del rango de 70 y 100, se te notificara")
 
@@ -48,6 +48,38 @@ function ingresarGlucosa() {
     /*Mostrar los registros al usuario, se usa el bucle for para recorrer el array u mostrar cada registro,
     de la glucosa tomada por el prompt y notifica en consola si su glocosa es normal o si esta se encuentra elevada.
     */
+    let agregarNuevoRegistro = prompt("¿Deseas agregar otro nuevo registro de glucosa? (Responde 'si' o 'no')").toLowerCase();
 
+    while (agregarNuevoRegistro === 'si') {
+        let nuevaGlucosa = parseInt(prompt("Ingrese tu nueva cifra de glucosa:"));
+    
+        if (isNaN(nuevaGlucosa)) {
+            alert("Por favor ingresa numeros validos");
+            continue;
+        }
+    
+        let nuevoRegistro = { glucosa: nuevaGlucosa };
+        registrosGlucosa.push(nuevoRegistro);
+    
+        for (let i = 0; i < registrosGlucosa.length; i++) {
+            let nuevoRegistro = registrosGlucosa[i];
+            if(nuevoRegistro.glucosa >= 110){
+                console.log(
+                    "Tu registro: de glucosa es = " + nuevoRegistro.glucosa + ", se encuentra elevado, favor de ir al medico."
+                );
+            }else if(nuevoRegistro.glucosa <= 70){
+                console.log(
+                    "Tu registro: de glucosa es = " + nuevoRegistro.glucosa + ", se encuentra bajo, favor de ir al medico o consumir una fruta."
+                );
+            }else{
+                console.log(
+                    "Tu registro: de glucosa es = " + nuevoRegistro.glucosa + ", es normal"
+                );
+            }
+        }
+    
+        agregarNuevoRegistro = prompt("¿Deseas agregar otro nuevo registro de glucosa? (Responde 'si' o 'no')").toLowerCase();
+    }
+    
 }
 ingresarGlucosa()
