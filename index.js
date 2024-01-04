@@ -48,6 +48,8 @@ function ingresarGlucosa() {
     /*Mostrar los registros al usuario, se usa el bucle for para recorrer el array u mostrar cada registro,
     de la glucosa tomada por el prompt y notifica en consola si su glocosa es normal o si esta se encuentra elevada.
     */
+
+    //Solicitud de nueva cifra de glucosa (Correccion solicitada)
     let agregarNuevoRegistro = prompt("¿Deseas agregar otro nuevo registro de glucosa? (Responde 'si' o 'no')").toLowerCase();
 
     while (agregarNuevoRegistro === 'si') {
